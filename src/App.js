@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import locations from './constants/locations.json';
+import { LocationContainer } from './components/LocationContainer';
+import { LocationSelector } from './components/LocationSelector';
 
 function App() {
+  const [selectedOption, setSelectedOption] = useState('Kaikki sijainnit');
+  
+  // Create component array from locations.json
+  const locationArray = locations.values.map((city, index) => {
+    return <LocationContainer key={index} location={city} />
+  });
+
+  const selectOption = (option) => {
+    setSelectedOption(option);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='heading' ><p>Säätutka</p></div>
+      <LocationSelector handleSelect={selectOption} />
+      { selectedOption === 'Kaikki sijainnit' ? locationArray : <LocationContainer key={selectedOption} location={locations.values.find(loc => loc.name === selectedOption)}/> }
     </div>
   );
 }
