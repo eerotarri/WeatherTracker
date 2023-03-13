@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import locations from './constants/locations.json';
+import locations from './data/locations.json';
 import { LocationContainer } from './components/LocationContainer';
 import { LocationSelector } from './components/LocationSelector';
 

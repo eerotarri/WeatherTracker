@@ -1,7 +1,7 @@
+import axios from 'axios';
 import { useEffect, useState } from "react";
 import { Forecast } from "./Forecast";
-import { refreshRate } from "../constants/constants";
-import axios from 'axios';
+import { refreshRate } from "../data/constants";
 
 /**
 * A React component that contains the forecast blocks for a given location.
@@ -41,12 +41,12 @@ export const Forecasts = (props) => {
 
     // If the data has not been fetched yet, display a message
     if (!forecast) {
-        return <div>{ 'Data has not been fetched yet' }</div>;
+        return <div data-testid="loading" >{ 'Loading...' }</div>;
     }
 
     // If the data has been fetched but the API returns an error, display the error message
     if (forecast.cod !== "200") {
-        return <div>{ forecast.message }</div>;
+        return <div data-testid="api-error" >{ forecast.message }</div>;
     }
 
     // Take API data and map it to Forecast components

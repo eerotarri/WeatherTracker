@@ -14,7 +14,7 @@ export const Forecast = (props) => {
     }, [])
 
 	return (
-        <div className="forecast-container" data-testid={'forecast-1'} >
+        <div className="forecast-container" data-testid={'forecast'} >
             <div className="upper-white">
                 <div className="small-grey">{ props.forecast.dt_txt.substr(11, 5) }</div>
                 <img src={`http://openweathermap.org/img/wn/${props.forecast.weather[0].icon}@2x.png`} alt="Icon" />
@@ -24,7 +24,7 @@ export const Forecast = (props) => {
                 <div>{ props.forecast.wind ? props.forecast.wind.speed + ' m/s' : null}</div>
                 <div>{ props.forecast.main ? props.forecast.main.humidity + ' %' : null}</div>
                 { props.forecast.rain && props.forecast.rain.hasOwnProperty('3h') ? 
-                    <div>{ (props.forecast.rain["3h"]) + ' mm' }</div> 
+                    <div>{ Math.round(props.forecast.rain["3h"]) + ' mm' }</div> 
                     : <div>{ '0 mm' }</div>  }
             </div>
         </div>

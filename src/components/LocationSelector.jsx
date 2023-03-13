@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locations from '../constants/locations.json';
+import locations from '../data/locations.json';
 
 /**
  * A React component that contains the dropdown menu for selecting a location.
@@ -32,12 +32,12 @@ export const LocationSelector = (props) => {
 
   return (
     <div className="dropdown-container" data-testid={'location-selector'}>
-      <div className="dropdown-header" onClick={toggleDropdown}>
+      <div className="dropdown-header" onClick={toggleDropdown} data-testid={'dropdown-header'}>
         <div>{selectedOption || 'Select an option'}</div>
         <img src={'/dropdown-icon-14.jpg'} alt="dd-icon" className="dropdown-image" />
       </div>
       {isOpen && (
-        <div className="dropdown-list">
+        <div data-testid="dropdown-list" className="dropdown-list">
           {options.map((option) => (
             <div
               key={option}

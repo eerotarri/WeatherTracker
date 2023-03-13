@@ -17,6 +17,11 @@
 
 Säätutka is a React SPA that allows users to search for and view the current weather and 3-hour interval forecasts for specified locations. The app uses OpenWeatherMap API to retrieve weather data and displays it in a user-friendly interface. With Säätutka, users can stay up-to-date with the latest weather information in their area and plan their day accordingly.
 
+## Running the application
+
+First set up the API Key (see  [setting-up API Key](#setting-up-api-key)).
+Then you can run the application in server mode with script 'npm run start'  or in production mode by first building with script with 'npm run build' and then serving the build with script 'npm run serve'. See more scripts at [available scripts](#available-scripts).
+
 ## Features
 
 ### Dropdown selector

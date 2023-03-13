@@ -14,8 +14,8 @@ export const unixTimeStampToDate = (unix) => {
 
     return (
         <div className="bottom-left">
-            <div className="date">{ monthName + ' ' + day }</div>
-            <div className="small-grey" >{ formattedTime }</div>
+            <div data-testid="date" className="date">{ monthName + ' ' + day }</div>
+            <div data-testid="time" className="small-grey" >{ formattedTime }</div>
         </div>
     )
 }
